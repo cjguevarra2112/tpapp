@@ -26,11 +26,10 @@ class App extends CI_Controller {
 	
 	public function index(){
 		$um = new User_mapper();
-		$user = $um->loginFetch('cjguevarra2112@yahoo.com', 'jimmy2112');
+		$user = $um->loginFetch('nessEB@yahoo.com', 'nesspass');
 		
-		$user->email = "jimmy2112@yahoo.com";
-		$user->lname = "Friday";
-		var_dump($um->saveUser($user));
+		$user->email = "nessmother2@yahoo.com";
+		$um->saveUser($user);
 	}
 	
 	
