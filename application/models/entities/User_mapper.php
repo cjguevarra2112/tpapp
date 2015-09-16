@@ -59,7 +59,7 @@ class User_mapper extends CI_Model {
 	 * @return User => User object
 	**/
 	public function loginFetch($email, $password) {
-		$query = $this->db->get_where('users', array('email' => $email));
+		$query = $this->db->get_where('users', array('email' => $email, 'status' => 'Allow'));
 		
 		if ($query->num_rows()) {
 			$rowArray = $query->row_array();

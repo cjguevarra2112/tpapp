@@ -25,12 +25,60 @@ class App extends CI_Controller {
 	}
 	
 	public function index(){
-		$um = new User_mapper();
-		$user = $um->loginFetch('nessEB@yahoo.com', 'nesspass');
 		
-		$user->email = "nessmother2@yahoo.com";
-		$um->saveUser($user);
+		$data = array(
+			'title' => 'Home'
+		);
+		
+		$this->load->view('layout/header', $data);
+		$this->load->view('modules/public/home');
+		$this->load->view('layout/footer');
+		
+		/*$um = new User_mapper();
+		$user = $um->loginFetch('jimmy2112@yahoo.com', 'jimmy2112');
+		var_dump($user);*/
 	}
 	
+	public function lectures() {
+		$data = array(
+			'title' => 'Lectures'
+		);
+		
+		$this->load->view('layout/header', $data);
+		$this->load->view('modules/public/lectures');
+		$this->load->view('layout/footer');
+	}
+	
+	public function login() {
+		$data = array(
+			'title' => 'Login'
+		);
+		
+		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+			// validate form
+			echo $this->input->post('login-email');
+		}
+		
+		$this->load->view('layout/header', $data);
+		$this->load->view('modules/public/loginform');
+		$this->load->view('layout/footer');
+	}
+	
+	
+	public function register () {
+		
+		$data = array(
+			'title' => 'Register'
+		);
+		
+		$this->load->view('layout/header', $data);
+		$this->load->view('modules/public/registerform');
+		$this->load->view('layout/footer');
+	}
+	
+	
+	public function members () {
+		echo "You are now in members page!";
+	}
 	
 }
